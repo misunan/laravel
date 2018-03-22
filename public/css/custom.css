@@ -1,0 +1,16 @@
+body {
+background-color: #FFF;
+  color:#373B3A;
+ display: flex;
+ flex-direction:column;
+ justify-content:center;
+ font-family: 'Roboto', sans-serif;
+}
+.container {
+  display:flex;
+  flex-direction: column;
+}
+.navbar ul{
+  display:flex;
+  flex-direction: row;
+}
