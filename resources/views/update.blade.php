@@ -3,30 +3,32 @@
 @section('title', 'Update')
 
 @section('content')
-<heade>
+<header class="header_update">
     <h1>Mettre à jour</h1>
-</head>
-<section>
+</header>
+<section class=" update_form_container">
   {!! Form::open(['url' => '/store']) !!}
   {!! Form::hidden('id', $musics->id ) !!}
   <div class="form-group">
-    {!!Form::label('Artist', 'Artist', ['class' => 'control-label']) !!}
+    {!!Form::label('Artist', 'Artist', ['class' => 'awesome']) !!}
     {!! Form::text('artist', $musics->artist, ['class' => 'form-control']) !!}
   </div>
   <div class="form-group">
-    {!!Form::label('Album', 'Album', ['class' => 'control-label']) !!}
+    {!!Form::label('Album', 'Album', ['class' => 'awesome']) !!}
     {!! Form::text('album', $musics->album, ['class' => 'form-control']) !!}
   </div>
   <div class="form-group">
-    {!!Form::label('Price', 'Price', ['class' => 'control-label']) !!}
+    {!!Form::label('Price', 'Price', ['class' => 'awesome']) !!}
     {!! Form::text('price', $musics->price, ['class' => 'form-control']) !!}
   </div>
   <div class="form-group">
-    {!!Form::label('Summary', 'Summary', ['class' => 'control-label']) !!}
+    {!!Form::label('Summary', 'Summary', ['class' => 'awesome']) !!}
     {!! Form::text('summary', $musics->summary, ['class' => 'form-control']) !!}
   </div>
+  <div class="form-btn">
+    {!! Form::submit('Ajouter', ['class' => 'btn_update']) !!}
+  </div>
 
-  {!! Form::submit('Ajouter', ['class' => 'button']) !!}
   {!! Form::close()!!}
 </div>
 </section>

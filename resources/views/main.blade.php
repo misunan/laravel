@@ -3,11 +3,11 @@
 @section('title', 'Home page welcome')
 
 @section('content')
-<heade>
+<header>
     <h1>PRÉCOMMANDES DU MOMENT</h1>
-    <h3>ACTUALITÉ & BONS PLANS</h3>
-</head>
-<section>
+    <p class="title">ACTUALITÉ & BONS PLANS</p>
+</header>
+<section class="show_table">
   <table>
     <tr>
       <th>Artist</th>
@@ -23,13 +23,13 @@
     <td>{{$music->album}}</td>
     <td>{{$music->price}}</td>
     <td>{{$music->summary}}</td>
-    <td>
+    <td class="bg_color">
 		  {!! Form::open(array('url' => '/update', 'methode' => 'post')) !!}
 		  {{ Form::hidden('id', $music->id) }}
 		  {!! Form::submit('U', ['class' => 'button']) !!}
 		  {!! Form::close() !!}
 		</td>
-    <td>
+    <td class="bg_color">
 		  {!! Form::open(array('url' => '/delete', 'methode' => 'post')) !!}
 		  {{ Form::hidden('id', $music->id) }}
 		  {!! Form::submit('X', ['class' => 'button']) !!}
@@ -40,7 +40,15 @@
   </table>
 </section>
 
-<section>
+  <div class="error">
+    <p class="textError">message error :
+      @if(Session::has('message'))
+        <div>{{ session('message')}}</div>
+      @endif
+      </p>
+   </div>
+<section class="flex-container-row">
+
   {!! Form::open(['url' => '/music']) !!}
   <div class="form-group">
   {!! Form::label('Artist', 'Artist', ['class' => 'awesome']) !!}
@@ -58,13 +66,11 @@
   {!! Form::label('Summary', 'Summary', ['class' => 'awesome']) !!}
   {!! Form::text('summary', '', ['placeholder' => 'summary']) !!}
   </div>
-  {!! Form::submit('Click Me!') !!}
+  <div class="bht_container">
+  {!! Form::submit('Click Me!',['class' => 'btn']) !!}
+  </div>
   {!! Form::close() !!}
 </section>
-<div class="error">
-    @if(Session::has('message'))
-      <div>{{ session('message')}}</div>
-    @endif
- </div>
+
 
 @endsection
